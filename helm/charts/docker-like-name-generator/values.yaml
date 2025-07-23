@@ -1,0 +1,71 @@
+# Default values for docker-like-name-generator.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Default values :
+service:
+   type: ClusterIP 
+   port: 80
+
+replicaCount: 1
+
+editdefaultSecurityContext: # Overwrite default UIDs and GIDs
+  webServerUID: 1001
+  appUID: 1002
+  groupForBoth: 3000    
+
+image:
+  repository: pracan
+  name: docker-like-name-generator
+  tag: latest # Overrides the image tag whose default is the chart appVersion.
+
+debug: #adds another container to the pod for debug purposes
+  enabled: false 
+  image: busybox:latest #image of the debug container
+
+# Optional :
+# service:
+#   type: NodePort # Service can be a NodePort (default is ClusterIP)
+#   port: 8080
+#   nodePort: 30007 # If Service is a NodePort, specify nodePort number
+
+# replicaCount: 1 #if you need more than 1 replica and don't use horizontal_pod_autoscaling
+
+# horizontal_pod_autoscaling: #if you need more than 1 replica and don't use replicaCount
+#   enabled: false
+#   minReplicas: 1
+#   maxReplicas: 3
+#   targetCPUUtilizationPercentage: 50
+
+# podAnnotations: {} # Additional Kubernetes Annotations to a Pod.
+# podLabels: {} # Additional Kubernetes Labels to a Pod.
+
+# debug: #adds another container to the pod for debug purposes (Default : busybox:latest)
+#   enabled: false 
+#   image: python:3.13.2-alpine3.21 #image of the debug container
+
+# image:
+#   registry: ghcr.io
+#   repository: pracan
+#   name: docker-like-name-generator
+#   tag: latest # Overrides the image tag whose default is the chart appVersion.
+#   pullPolicy: IfNotPresent
+
+# editdefaultSecurityContext: # Overwrite default UIDs and GIDs
+#   webServerUID: 1001
+#   appUID: 1002
+#   groupForBoth: 3000           
+
+# imagePullSecrets: [] # This is for the secrets for pulling an image from a private repository
+
+# livenessProbe:
+#   httpGet:
+#     path: /
+#     port: http
+# readinessProbe:
+#   httpGet:
+#     path: /
+#     port: http
+
+# nameOverride: "" # This is to override the chart name.
+# fullnameOverride: "" # This is to override the release name and chart name
