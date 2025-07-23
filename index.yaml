@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  docker-like-name-generator:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2025-07-23T16:49:45.18652382Z"
+    description: docker-like-name-generator Helm chart for Kubernetes
+    digest: 9a1b54a61b35b89453d8d4bfbf92c84a99f544c6aed199a6ebf09b04a9234058
+    name: docker-like-name-generator
+    type: application
+    urls:
+    - https://github.com/pracan/docker-like-name-generator-deploy/releases/download/docker-like-name-generator-0.1.0/docker-like-name-generator-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-07-23T16:49:45.18654999Z"
